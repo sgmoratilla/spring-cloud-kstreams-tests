@@ -1,0 +1,17 @@
+spring.cloud.stream:
+  bindings:
+    input-channel:
+      content-type: application/json
+      consumer.max-attempts: 2
+      destination: input-develop
+      group: kstream-tests-develop-service
+    ouput-channel:
+      content-type: application/json
+      consumer.max-attempts: 2
+      destination: output-develop
+      group: kstream-tests-develop-service
+spring.cloud.stream.kafka.streams.binder:
+  application-id: kstreams-tests-develop-service
+  configuration:
+    default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+    default.value.serde: org.springframework.kafka.support.serializer.JsonSerde
